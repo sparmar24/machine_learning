@@ -1,3 +1,6 @@
+pylint
+ruff
+pdbpp
 numpy
 pandas
 polars
