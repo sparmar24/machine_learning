@@ -3,6 +3,7 @@
 # "csv" data file from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
 import pandas as pd
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -14,13 +15,13 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
+from xgboost import XGBClassifier
 
 
 def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
-    """ predict accuracy for each model """
+    """predict accuracy for each model"""
     ps_estimator.fit(ps_train_X, ps_train_y)
     prediction = ps_estimator.predict(ps_test_X)
-    """ calculating confusion matrix: {fp, fn, tp, tn} and accuracy score for each model """
     confusion = confusion_matrix(ps_test_y, prediction)
     accuracy = accuracy_score(ps_test_y, prediction)
     return prediction, confusion, accuracy
@@ -31,6 +32,8 @@ def main():
     dataset = pd.read_csv("Breast_Cancer_Data.csv")
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
+
+    y = np.where(y > 2, 1, 0)
 
     # split the training and test data
     train_X, test_X, train_y, test_y = train_test_split(
@@ -55,6 +58,7 @@ def main():
         "random_forest": RandomForestClassifier(
             criterion="entropy", n_estimators=5, random_state=0
         ),
+        "xgboost": XGBClassifier(),
     }
 
     for estimator_name, estimator in estimators.items():
@@ -72,7 +76,6 @@ def main():
             "avg_cvs": sum(cross_validation) / len(cross_validation),
         }
 
-    breakpoint()
 
 if __name__ == "__main__":
     main()
