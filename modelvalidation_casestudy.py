@@ -4,7 +4,6 @@
 
 import pandas as pd
 import numpy as np
-from config import inputfile
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
@@ -16,6 +15,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 from xgboost import XGBClassifier
+from config import inputfile
 
 
 def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
