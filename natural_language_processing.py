@@ -39,12 +39,12 @@ def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
 
 
 def main():
-    # dataset = pd.read_csv(inputfile)
-    dataset = pd.read_csv(
-        "~/PycharmProjects/MLProjects_UdemyCourse/part7_NaturalLanguageProcessing/Restaurant_Reviews.tsv",
-        delimiter="\t",
-        quoting=3,
-    )
+    dataset = pd.read_csv(inputfile)
+    # dataset = pd.read_csv(
+    #     "~/PycharmProjects/MLProjects_UdemyCourse/part7_NaturalLanguageProcessing/Restaurant_Reviews.tsv",
+    #     delimiter="\t",
+    #     quoting=3,
+    # )
 
     """Data cleaning"""
     # import modules for deep cleaning the texts in dataset
