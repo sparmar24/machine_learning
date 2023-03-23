@@ -1,5 +1,5 @@
-# Case study: Breast cancer data to find the best machine learning model
-# Data downloaded from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
+#Case study: Breast cancer data to find the best machine learning model
+# Data from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
 
 <p align="center">
