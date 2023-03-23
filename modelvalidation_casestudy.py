@@ -1,9 +1,8 @@
-## Breast cancer case study using different Machine Learning models ##
+""" Breast cancer case study using different Machine Learning models """
 ######### applied "k-fold cross" validation for best ML model ########
 # "csv" data file from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
 import pandas as pd
-import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -18,9 +17,10 @@ from sklearn.model_selection import cross_val_score
 
 
 def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
+    """ predict accuracy for each model """
     ps_estimator.fit(ps_train_X, ps_train_y)
     prediction = ps_estimator.predict(ps_test_X)
-    # calculating confusion matrix: {fp, fn, tp, tn} and accuracy score for each model one by one
+    """ calculating confusion matrix: {fp, fn, tp, tn} and accuracy score for each model """
     confusion = confusion_matrix(ps_test_y, prediction)
     accuracy = accuracy_score(ps_test_y, prediction)
     return prediction, confusion, accuracy
