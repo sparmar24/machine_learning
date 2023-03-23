@@ -1,10 +1,10 @@
 """ Breast cancer case study using different Machine Learning models """
-######### applied "k-fold cross" validation for best ML model ########
+######### applied "k-fold cross" validation for best ML model estimation ########
 # "csv" data file from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
 import pandas as pd
 import numpy as np
-
+from config import inputfile
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
@@ -28,8 +28,8 @@ def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
 
 
 def main():
-    # load the dataset
-    dataset = pd.read_csv("Breast_Cancer_Data.csv")
+    # load the dataset "Breast_Cancer_Data.csv"
+    dataset = pd.read_csv(inputfile)
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
 
