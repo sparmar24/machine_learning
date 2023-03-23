@@ -1,7 +1,6 @@
 # Case study: Breast cancer data to find the best machine learning model
 # Data downloaded from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
-<h2 align="center"> </h2>
 
 <p align="center">
 <a href="https://github.com/sparmar24/machine_learning/blob/main/LICENSE"><img alt="License: MIT" src="https://black.readthedocs.io/en/stable/_static/license.svg"></a>
