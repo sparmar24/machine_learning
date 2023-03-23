@@ -72,6 +72,7 @@ def main():
             "avg_cvs": sum(cross_validation) / len(cross_validation),
         }
 
+    breakpoint()
 
 if __name__ == "__main__":
     main()
