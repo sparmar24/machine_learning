@@ -1,5 +1,5 @@
-#CaseStudy_ML_AccuracyScore
-
+# Case study of Breast cancer data to find the best machine learning model
+# Data downloaded from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
 <h2 align="center"> </h2>
 
@@ -13,5 +13,6 @@
 <a href="https://scikit-learn.org/stable/"><img alt="Matplotlib" src="https://img.shields.io/badge/Scikit--learn-1.2.2-orange"></a>
 <a href="https://pypi.org/project/pylint/"><img alt="pylint" src="https://img.shields.io/badge/pylint-2.17.1-blue"></a>
 </p>
+
 
 
