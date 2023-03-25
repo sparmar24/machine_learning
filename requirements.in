@@ -5,7 +5,7 @@ numpy
 pandas
 polars
 matplotlib
-sklearn
+scikit-learn
 scipy
 nltk
 tensorflow
