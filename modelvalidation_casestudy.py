@@ -2,6 +2,7 @@
 ######### applied "k-fold cross" validation for best ML model estimation ########
 # "csv" data file from UCI machine learning repository :https://archive.ics.uci.edu/ml/index.php
 
+import os
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -15,7 +16,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 from xgboost import XGBClassifier
-from config import inputfile
 
 
 def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
@@ -29,6 +29,8 @@ def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
 
 def main():
     # load the dataset "Breast_Cancer_Data.csv"
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    inputfile = f"{dir_path}/data/Breast_Cancer_Data.csv"
     dataset = pd.read_csv(inputfile)
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
