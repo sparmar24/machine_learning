@@ -18,6 +18,29 @@ from sklearn.model_selection import cross_val_score
 from xgboost import XGBClassifier
 
 
+# Define project path using os
+project_dir = os.path.realpath(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+)
+
+
+def load_dataset(data_file):
+    data_folder = "data"
+    inputfile = os.path.join(project_dir, data_folder, data_file)
+    # Following will also work with ''' import sys; sys.path.insert(0, "..")'''
+    # inputfile = "data/amptsm.csv"
+    try:
+        dataset = pd.read_csv(inputfile)
+    except:
+        print(
+            f"Your data file {data_file} does not exist "
+            f"in {project_dir}/{data_folder}.\n"
+            f"Kindly, place your data file correctly."
+        )
+        exit()
+    return dataset
+
+
 def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
     """predict accuracy for each model"""
     ps_estimator.fit(ps_train_X, ps_train_y)
@@ -29,9 +52,9 @@ def pred_score(ps_estimator, ps_train_X, ps_test_X, ps_train_y, ps_test_y):
 
 def main():
     # load the dataset "Breast_Cancer_Data.csv"
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    inputfile = f"{dir_path}/data/Breast_Cancer_Data.csv"
-    dataset = pd.read_csv(inputfile)
+    # dir_path = os.path.dirname(os.path.realpath(__file__))
+    # inputfile = f"{dir_path}/data/Breast_Cancer_Data.csv"
+    dataset = load_dataset("Breast_Cancer_Data.csv")
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
 
