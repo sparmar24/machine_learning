@@ -1,0 +1,10 @@
+[project]
+name = "machine-learning"
+version = "0.1"
+dependencies = ["numpy", "pandas", "matplotlib", "seaborn", "scikit-learn", "polars"]
+
+# pip-compile --output-file=requirements.txt --extra=dev pyproject.toml
+# pip-compile --output-file=requirements.txt --extra=dev --extra=linux pyproject.toml
+# pip-compile --output-file=macos-requirements.txt --extra=dev --extra=macos pyproject.toml
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pdbpp"]
