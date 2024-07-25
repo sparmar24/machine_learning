@@ -15,7 +15,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
-from xgboost import XGBClassifier
+# from xgboost import XGBClassifier
 
 
 # Define project path using os
@@ -83,8 +83,9 @@ def main():
         "random_forest": RandomForestClassifier(
             criterion="entropy", n_estimators=5, random_state=0
         ),
-        "xgboost": XGBClassifier(),
+        # "xgboost": XGBClassifier(),
     }
+
 
     for estimator_name, estimator in estimators.items():
         prediction, confusion, accuracy = pred_score(
